@@ -32,7 +32,7 @@ pub fn generate_constants(n_rounds: usize) -> Constants {
 
 pub fn get_constants(seed: &str, n_rounds: usize) -> Vec<Fr> {
     let mut cts: Vec<Fr> = Vec::new();
-    cts.push(Fr::ZERO);
+    cts.push(Fr::zero());
 
     let mut keccak = Keccak::new_keccak256();
     let mut h = [0u8; 32];
@@ -80,7 +80,7 @@ impl Mimc7 {
     }
 
     pub fn hash(&self, x_in: &Fr, k: &Fr) -> Fr {
-        let mut h: Fr = Fr::ZERO;
+        let mut h: Fr = Fr::zero();
         for i in 0..self.constants.n_rounds {
             let mut t: Fr;
             if i == 0 {
